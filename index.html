@@ -9,25 +9,84 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body onLoad="loadTopics()">   <!-- load topics into dropdown list when body loads. -->
 
-<nav class="navbar navbar-default">
+<style>
+	/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 0px solid #ccc;
+    border-top: none;
+}
+
+/* Style the close button */
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+.topright:hover {color: red;}
+</style>
+
+</head>
+<body> 
+
+<nav class="navbar navbar-default" style="position:sticky">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand">Pages</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+   <div class="navbar-header">
+<!--		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		   <span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>                    
+		</button>  -->
+      <a class="navbar-brand"></a>
+    </div> 
+	<div class="tab">
+		<button class="tablinks" onclick="activePage(event, 'about')" id="defaultOpen">About the group</button>
+		<button class="tablinks" onclick="activePage(event, 'photos')">Photos</button>
+		<button class="tablinks" onclick="activePage(event, 'history')">History</button>
+		<button class="tablinks" onclick="activePage(event, 'events')">Events</button>
+		<button class="tablinks" onclick="activePage(event, 'contact')">Contact Us</button>
+	</div>
+<!--    <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="https://gullifordgraveyard.github.io/">Home</a></li>
-        <li><a href="https://gullifordgraveyard.github.io/pictures">Pictures</a></li>
+        <li class="active" id="btn1"><a href="#about">About the Group</a></li>
+        <li id="btn2"><a href="#photos">Pictures</a></li>
+		<li id="btn3"><a href="#history">History</a></li>
+		<li id="btn4"><a href="#events">Events</a></li>
+		<li id="btn5"><a href="#contact">Contact us</a></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </nav>
 <!-- navbar code adapted from http://www.w3schools.com/bootstrap/bootstrap_navbar.asp  -->
@@ -36,34 +95,81 @@
 
 <h1> Friends of Gulliford Burial Ground</h1>
 <br>
-<br>
 
 <!--  HTML CODE GOES HERE -->
 
 
-<div id="About_us" style="display:inline">
+<div id="about" style="display:inline;display:block" class="tabcontent">
 	<div class="row" >
-		<div class="col-xs-3 col-sm-4 col-md-2 col-lg-4">
-			<h2>About us:</h2>
-		</div>
-		<div class="col-xs-9 col-sm-8 col-md-10 col-lg-8"></div>
+		<h2>About the group:</h2>
 	</div>
 	<div class="row">
-		<div id="resultsGoHere" class="col-xs-11 col-sm-11 col-md-11 col-lg-11"></div>
-		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+		The Gulliford Burial Ground is a dissenters' burial ground managed by both Lympstone and Woodbury Parish councils as it is situated on the boundary of both parishes and is important to the history of both.
+		<br><br>
+		The Friends of Gulliford Burial Ground has been set up by local residents who love the site as a beautiful and tranquil place to visit and also to preserve the history and heritage of the site. It has created an avenue for the Parish councils to get the volunteer helpers it needs to keep the site in good repair though gardening working parties and fundraising events.
+		<br><br>
+		Adverse weather conditions and lack of funds has lead to the burial ground's walls needing urgent repair. The graves also need to be repaired and maintained and we hope that we can now move forward to fundraise in order to do these urgent repairs and preserve this historical site for the next generation of parishioners. 
+	</div>
+	<div class="row" >
+		<h3>Would you like to support us and get involved?</h3>
+	</div>
+	<div class="row">
+		<ul>
+			<li>Join as a member for just a one-off payment of £5</li>
+			<li>Add your contact details to our volunteer list so we can contact you when we need volunteers for work-parties, fund-raising events etc.</li>
+			<li>Donate a larger amount to help with our work or set up a regular annual donation</li>
+			<li>Come along to our various fundraising events</li>
+		</ul>
+		Every little act of support given, no matter how small, is greatly appreciated.
 	</div>
 </div>
 
-<div id="photos" style="display:inline">
+<div id="photos" style="display:inline;display:none" class="tabcontent">
 	<div class="row" >
-		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-			<h2>Photos:</h2>
-		</div>
-		<div class="col-xs-6 col-sm-6 col-md-8 col-lg-8"></div>
+		<h2>Photos</h2>
+	</div>
+</div>
+
+<div id="history" style="display:inline;display:none" class="tabcontent">
+	<div class="row" >
+		<h2>The History of Gulliford Burial Ground</h2>
+	</div>
+	<div>
+		Gulliford Burial Ground lies in Meetings Lane (reference to the Meeting House) and the top of Strawberry Hill, Lympstone.<br><br> A Presbyterian and later Unitarian site going back to the 17th century to a time of religious upheaval and risk of imprisonment to those not toeing the religious line. The first chapel was built in 1687, the band of dissenters grow made up by the new middle classes to humbler locals from Lympstone, Woodbury, Ebford, Exmouth & the surrounding areas, often with a dozen carriages parked outside, not an easy journey on unmade roads. <br><br>A violent riot broke out at one time, entering the chapel and smashing windows reminding the congregation of the risk of worshipping outside the established church. In 1774 a further plot of land was donated to extend the site for a second larger chapel to be built to replace the original chapel, which was now too small for the extra congregation. A ruling was make at the time that the new meeting house must not be used as a burying place for the dead with all burials performed in the graveyard (thence the lack of headstones at the back of the site today). Yearly donations from the congregation funded the site, Thomas Smith (Queen Anne House, Lympstone) gave £2 & Joseph Nutt of Lympstone gave 4 shillings in 1733. <br><br>In 1786 it was decided that each person should pay two shillings a year for a pew, records show that some people also paid for their servant’s seating, as well as shares bought by the trustee in the South Sea Stock. This paid for the salary of the Minister & the building up keep. <br><br>In 1853, the cost of a marriage for a subscriber to the chapel was, 10s 6d for the Minister, 2s each for the Clerk & Sexton. Baptism was 1s for the Minister, 9d for both the Clerk & Seaton. Burial fee resulting in the Minister getting £1 1s, Clerk & Sexton each getting 2s 6d, permission for a common grave 10s 6d, permission for a headstone 10s 6d and permission for a tomb with or without a rail £3 3s.
+		<br><br>Burial at Gulliford include Worthington Brice a merchant who’s business comprised of the whaling industry based at his home at Parsonage Stile, Margaret & Charles Baring who’s family were the banking dynasty from Courtlands, Brice Wakeford Lee of Ebford Barton a Major-General in the Indian Army, George Mason aged just 25 a talented artist, his work hung in the Royal Academy.  
+		<br><br>By the end of the 19th century, the laws of dissenters had relaxed, new chapels were built in Exmouth & Topsham reducing the need to travel so far. The Methodists too had a new chapel, having for years hired the dis-used Dissenters chapel in Church Road, next to the Redwing (thence the former name The Vaults) and where Ellenthorpe now stands. The congregation was down to about ten with a minister who cancelled without notice, the roof was unsafe, repairs neglected and finally in 1907 the chapel was demolished.
+		<br><br>Today the burial ground is jointly looked after by Lympstone & Woodbury Parish Councils. The perimeter walls and the Jervis, the Lees and the Stogdon tombs are Grade II Listed. A notice board informs visitors of it’s past, the site’s history hidden behind ivy & yew. A bench welcomes the caller to stop and listen to the bird song.
+	</div>
+</div>
+
+<div id="events" style="display:inline;display:none" class="tabcontent">
+	<div class="row" >
+		<h2>Events 2018</h2>
 	</div>
 	<div class="row">
-		<div id="tweetsGoHere" class="col-xs-11 col-sm-11 col-md-11 col-lg-11"></div>
-		<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+		<h3>11th & 12th of August (Saturday & Sunday) at 10.30am & 2.30pm each day:<br>Free Tours of Gulliford Burial Ground</h3>
+	</div>
+	<div>
+		The Friends of Gulliford Burial Ground are holding their first public event on the 11th & 12th of August (Saturday & Sunday) at 10.30am & 2.30pm each day.
+		<br><br>
+		 The free tours will include an introduction to the history of the site and chapels by Gill Selley, followed by researched stories of some of the dissenters buried there from an artist to a whale merchant, by Angela Coles. Refreshments will be available, however parking is limited. This is a great opportunity to learn about this historical corner of Woodbury & Lympstone.	<br><br>	
+
+	</div>
+</div>
+
+<div id="contact" style="display:inline;display:none" class="tabcontent">
+	<div class="row" >
+		<h2>Contact Us</h2>
+	</div>
+	<div>
+		We'd love to hear from you and here's how: 
+		<br><br>
+		<h4>Chairman: Mrs Angela Coles</h4>
+		lympiron11@hotmail.co.uk
+		<br><br>
+		<h4>Secretary: Mrs Jane Moffatt</h4>
+		janepmoffatt@gmail.com
+		<br><br>
 	</div>
 </div>
 
@@ -76,6 +182,22 @@ $.ajaxSetup ({
 
 //Javascript code goes here
 
+function activePage(evt, pageName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(pageName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+
+document.getElementById("defaultOpen").click();
 
 </script>
 
