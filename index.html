@@ -48,148 +48,80 @@
     border-top: none;
 }
 
-/* Style the close button */
-.topright {
-    float: right;
+body {
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+.rowGallery {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+
+/* Create four equal columns that sits next to each other */
+.columnGallery {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-top: 8px;
+    vertical-align: middle;
+	opacity:0.9;
+	cursor: pointer;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .columnGallery {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .columnGallery {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+/* The expanding image container */
+.containerGallery {
+    position: relative;
+    display: none;
+}
+
+
+/* Clear floats after the columns */
+.rowGallery:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: red;
+	text-shadow:  0 0 60px black;
+    font-size: 45px;
     cursor: pointer;
-    font-size: 28px;
-}
-
-.topright:hover {color: red;}
-
-* {
-  box-sizing: border-box;
-}
-
-.row > .column {
-  padding: 0 8px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  float: left;
-  width: 25%;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mySlides {
-  display: none;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-img {
-  margin-bottom: -4px;
-}
-
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-img.hover-shadow {
-  transition: 0.3s;
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .center {
@@ -235,7 +167,11 @@ img.hover-shadow {
 	</div>
 	
 		<div class="row" style="margin: 5px 5px 5px 5px">
+			<figure>
 			<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/P1110753.JPG?raw=true" class="center-fit" style="float:right;margin: 0px 0px 10px 10px;width:50%">
+			<figcaption class="center-fit" style="float:right;margin: 0px 0px 10px 10px;width:50%">Photo courtesy of Richard Crisp</figcaption>
+			</figure>
+			
 			<p style="text-align:left">
 			The Gulliford Burial Ground is a dissenters' burial ground managed by both Lympstone and Woodbury Parish councils as it is situated on the boundary of both parishes and is important to the history of both.
 			<br><br>
@@ -261,167 +197,49 @@ img.hover-shadow {
 
 <div id="photos" style="display:inline;display:none" class="tabcontent">
 	
-<div class="row">
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/abcd.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+<div id="bigpic" class="containerGallery" style="margin:10px">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+	
+	<div class="rowGallery"> 
+  <div class="columnGallery">
+    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF0245.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1546.JPG?raw=true" style="width:100%;padding-bottom:10px"onclick="makeBigPic(this);">
+    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1611%20(1).JPG?raw=true" style="width:100%;padding-bottom:10px"onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x13.jpg?raw=true" style="width:100%;padding-bottom:10px"onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/efgh.jpg?raw=true" style="width:100%;padding-bottom:10px"onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x3.jpg?raw=true" style="width:100%;padding-bottom:10px"onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x8.jpg?raw=true" style="width:100%;padding-bottom:10px"onclick="makeBigPic(this);">
   </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1611%20(1).JPG" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+  <div class="columnGallery">
+    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF0333.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1626.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x14.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x10.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x15.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x1.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1559.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+  </div>  
+  <div class="columnGallery">
+    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1537.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1579.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/P1110753.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x4.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x9.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x6.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
   </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF0333.JPG" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/P1110753.JPG?raw=true" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+  <div class="columnGallery">
+    <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1539.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/DSCF1590.JPG?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/abcd.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x11.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x7.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
+	<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/x2.jpg?raw=true" style="width:100%;padding-bottom:10px" onclick="makeBigPic(this);">
   </div>
 </div>
-<div class="row">
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1537.JPG" style="width:100%" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1539.JPG" style="width:100%" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1546.JPG" style="width:100%" onclick="openModal();currentSlide(7)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1626.JPG" style="width:100%" onclick="openModal();currentSlide(8)" class="hover-shadow cursor">
-  </div>
-</div>
-<div class="row">
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/efgh.jpg" style="width:100%" onclick="openModal();currentSlide(9)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1590.JPG" style="width:100%" onclick="openModal();currentSlide(10)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1579.JPG" style="width:100%" onclick="openModal();currentSlide(11)" class="hover-shadow cursor">
-  </div>
-  <div class="column">
-    <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1559.JPG" style="width:100%" onclick="openModal();currentSlide(12)" class="hover-shadow cursor">
-  </div>
-</div>
-
-<div id="myModal" class="modal" >
-  <span class="close cursor" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-
-    <div class="mySlides">
-      <div class="numbertext"> 1 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/abcd.jpg" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext"> 2 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1611%20(1).JPG" style="width:100%">
-    </div>
-
-    <div class="mySlides">
-      <div class="numbertext"> 3 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF0333.JPG" style="width:100%">
-    </div>
-    
-    <div class="mySlides">
-      <div class="numbertext"> 4 / 12</div>
-      <img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/P1110753.JPG?raw=true" style="width:100%">
-    </div>
 	
-	<div class="mySlides">
-      <div class="numbertext"> 5 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1537.JPG" style="width:100%">
-    </div>
-	
-	<div class="mySlides">
-      <div class="numbertext"> 6 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1539.JPG" style="width:100%">
-    </div>
-	
-	<div class="mySlides">
-      <div class="numbertext"> 7 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1546.JPG" style="width:100%">
-    </div>
-	
-	<div class="mySlides">
-      <div class="numbertext"> 8 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1626.JPG" style="width:100%">
-    </div>
-	
-	<div class="mySlides">
-      <div class="numbertext"> 9 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/efgh.jpg" style="width:100%">
-    </div>
-	
-	<div class="mySlides">
-      <div class="numbertext">10 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1590.JPG" style="width:100%">
-    </div>
-	
-	<div class="mySlides">
-      <div class="numbertext">11 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1579.JPG" style="width:100%">
-    </div>
-	
-	<div class="mySlides">
-      <div class="numbertext">12 / 12</div>
-      <img src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1559.JPG" style="width:100%">
-    </div>
-    
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-
-<div class="row" style="background-color: black">
-    <div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/abcd.jpg" style="width:100%" onclick="currentSlide(1)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1611%20(1).JPG" style="width:100%" onclick="currentSlide(2)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF0333.JPG" style="width:100%" onclick="currentSlide(3)">
-    </div>
-    <div class="column">
-      <img class="demo cursor" src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/P1110753.JPG?raw=true" style="width:100%" onclick="currentSlide(4)" >
-	    </div>  
-</div>	
-	
-<div class="row" style="background-color: black">		
-	  <div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1537.JPG" style="width:100%" onclick="currentSlide(5)" >
-    </div>
-	<div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1539.JPG" style="width:100%" onclick="currentSlide(6)" >
-    </div>
-	<div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1546.JPG" style="width:100%" onclick="currentSlide(7)" >
-    </div>
-	<div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1626.JPG" style="width:100%" onclick="currentSlide(8)" >
-    </div>
-</div>	
-
-<div class="row" style="background-color: black">
-	<div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/efgh.jpg" style="width:100%" onclick="currentSlide(9)" >
-    </div>
-	<div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1590.JPG" style="width:100%" onclick="currentSlide(10)" >
-    </div>
-	<div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1579.JPG" style="width:100%" onclick="currentSlide(11)" >
-    </div>
-	<div class="column">
-      <img class="demo cursor" src="https://raw.githubusercontent.com/GullifordGraveyard/GullifordGraveyard.github.io/master/DSCF1559.JPG" style="width:100%" onclick="currentSlide(12)" >
-    </div>
-</div>	
-
-  </div>
-</div>
 	
 </div>
 
@@ -477,6 +295,16 @@ $.ajaxSetup ({
 
 //Javascript code goes here
 
+function makeBigPic(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+	document.getElementById('bigpic').scrollIntoView();
+}
+
+
 function activePage(evt, pageName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -494,42 +322,6 @@ function activePage(evt, pageName) {
 
 document.getElementById("defaultOpen").click();
 
-function openModal() {
-  document.getElementById('myModal').style.display = "block";
-}
-
-function closeModal() {
-  document.getElementById('myModal').style.display = "none";
-}
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  var captionText = document.getElementById("caption");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-  captionText.innerHTML = dots[slideIndex-1].alt;
-}
 
 </script>
 
