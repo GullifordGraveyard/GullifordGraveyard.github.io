@@ -131,12 +131,27 @@ body {
     width: 50%;
 }
 
+.headerContainer{
+    position: relative;
+    text-align: center;
+}
+
+.headerCenter{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -115%);
+	font-size:7vw;
+	text-shadow:  0 0 1vw white;
+
+}
+
 </style>
 
 </head>
 <body> 
 
-<nav class="navbar navbar-default" style="position:sticky">
+<nav class="navbar navbar-default" style="position:sticky;">
   <div class="container-fluid">
    <div class="navbar-header">
       <a class="navbar-brand"></a>
@@ -151,12 +166,15 @@ body {
   </div>
 </nav>
 
-<div class="container">
 
-<div id="title" style="text-align:center; font-weight:bold">
-<h1> Friends of Gulliford Burial Ground</h1>
-<br>
+<div class="headerContainer">
+<img src="https://github.com/GullifordGraveyard/GullifordGraveyard.github.io/blob/master/header1.jpg?raw=true" style="width:100%;filter:opacity(80%) blur(0px) contrast(150%);">
+<div id="title" class="headerCenter">
+Friends of Gulliford<br>Burial Ground
 </div>
+</div>
+
+<div class="container">
 
 <!--  HTML CODE GOES HERE -->
 
