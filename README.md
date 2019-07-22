@@ -1,3 +1,3 @@
 GullifordGraveyard.github.io
 
-[Friends of Gulliford Burial Ground Website](fogbg.org.uk)
+[Friends of Gulliford Burial Ground Website](http://fogbg.org.uk)
