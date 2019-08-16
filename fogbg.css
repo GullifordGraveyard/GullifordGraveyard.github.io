@@ -137,7 +137,7 @@ body {
 }
 
 .hero-section.visible {
-  background: #425945 url("images/header1.jpg") 50% no-repeat;
+  background: #425945 url('images/header1.jpg') 50% no-repeat;
   background-size: cover;
  height: 40vh;  
    width:100%;
