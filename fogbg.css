@@ -175,4 +175,13 @@ body {
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
-}	
+}
+
+li {
+    list-style-position: inside;
+    text-indent: -3em;
+}
+
+ol > li > ol {
+    list-style-type: upper-roman;
+}
