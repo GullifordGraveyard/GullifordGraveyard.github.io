@@ -61,11 +61,19 @@ body {
     padding: 0 4px;
 }
 
-.column img {
+.columnGallery img {
     margin-top: 8px;
     vertical-align: middle;
 	opacity:0.9;
-	cursor: pointer;
+    cursor: pointer;
+    width:100%;
+    padding-bottom:10px
+}
+
+#expandedImg{
+    object-fit:scale-down;
+    width:100%;
+    height:100vh;
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */

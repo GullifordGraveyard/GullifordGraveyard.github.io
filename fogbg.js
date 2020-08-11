@@ -9,6 +9,15 @@ function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+function makeBigPicListeners() {
+    const imgs = document.querySelectorAll(".columnGallery > img")
+    for (const img of imgs) {
+        img.addEventListener('click', function (event) {
+            makeBigPic(img);
+        })
+    }
+}
+
 
 function makeBigPic(imgs) {
     if (!isMobile()) {
@@ -39,6 +48,12 @@ function activePage(evt, pageName) {
 
 function resizeBanner() {
     document.getElementById('banner').scrollHeight = document.getElementById('bannerPic').scrollHeight;
+}
+
+function setAllImageSources(){
+    $("img").each(() =>{
+        $(this).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+    });
 }
 
 function lazyImageLoader() {
