@@ -98,12 +98,5 @@ function lazyHeroLoader() {
     }
 }
 
-// put below code in html file
-
-document.getElementById("defaultOpen").click();
-
-document.addEventListener("DOMContentLoaded", lazyImageLoader());
-
-document.addEventListener("DOMContentLoaded", lazyHeroLoader());
 
 

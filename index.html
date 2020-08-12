@@ -722,6 +722,10 @@
             document.addEventListener("DOMContentLoaded", lazyHeroLoader());
 
             document.addEventListener("DOMContentLoaded", makeBigPicListeners());
+
+            $(".columnGallery img").each((idx,ele) => {
+                ele.loading = "lazy";
+            })
             
         </script>
 
