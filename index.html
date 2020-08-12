@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
 
     <!-- JS code I wrote-->
     <script src="fogbg.js"></script>
@@ -20,7 +25,7 @@
 
 </head>
 
-<body onload="resizeBanner()">
+<body>
 
     <div class="hero-section">
         <div class="hero-section-text">
@@ -69,10 +74,9 @@
             <div class="row" style="margin: 5px 5px 5px 5px">
                 <figure>
                     <img data-src="images/P1110753.JPG" class="center-fit"
-                        style="float:right;margin: 0px 0px 10px 10px;width:50%">
+                        style="float:right;margin: 0px 0px 10px 10px;max-width:50%">
                     <figcaption class="center-fit" style="float:right;margin: 0px 0px 10px 10px;width:50%">
-                        Photo courtesy of
-                        Richard Crisp
+                        Photo courtesy of  Richard Crisp
                     </figcaption>
                 </figure>
 
@@ -723,10 +727,10 @@
 
             document.addEventListener("DOMContentLoaded", makeBigPicListeners());
 
-            $(".columnGallery img").each((idx,ele) => {
+            $(".columnGallery img").each((idx, ele) => {
                 ele.loading = "lazy";
             })
-            
+
         </script>
 
     </div> <!-- end of container div -->

@@ -66,8 +66,9 @@ body {
     vertical-align: middle;
 	opacity:0.9;
     cursor: pointer;
-    width:100%;
-    padding-bottom:10px
+    max-width:100%;
+    padding-bottom:10px;
+    transition: all 0.5s ease-in-out;
 }
 
 #expandedImg{

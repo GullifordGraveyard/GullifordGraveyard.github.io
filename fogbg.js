@@ -1,8 +1,3 @@
-$.ajaxSetup({
-    // Disable caching of AJAX responses
-    cache: false,
-});
-
 //Javascript code goes here
 
 function isMobile() {
@@ -23,9 +18,8 @@ function makeBigPic(imgs) {
     if (!isMobile()) {
         var expandImg = document.getElementById("expandedImg");
         var imgText = document.getElementById("imgtext");
-        expandImg.dataset.src = imgs.dataset.src;
         expandImg.src = imgs.dataset.src;
-        imgText.innerHTML = imgs.alt;
+        imgText.innerHTML = imgs.dataset.alt;
         expandImg.parentElement.style.display = "block";
         document.getElementById('bigpic').scrollIntoView();
     }
@@ -46,14 +40,8 @@ function activePage(evt, pageName) {
     evt.currentTarget.className += " active";
 }
 
-function resizeBanner() {
-    document.getElementById('banner').scrollHeight = document.getElementById('bannerPic').scrollHeight;
-}
-
 function setAllImageSources(){
-    $("img").each(() =>{
-        $(this).src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
-    });
+    $("img").attr("src","images/icons/spinner.gif");
 }
 
 function lazyImageLoader() {
@@ -64,9 +52,12 @@ function lazyImageLoader() {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     let lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove("lazy");
-                    lazyImageObserver.unobserve(lazyImage);
+
+                    var loadedImage = new Image()
+                    loadedImage.src = lazyImage.dataset.src;
+                    loadedImage.onload = function(){
+                        lazyImage.src = loadedImage.src;
+                    };
                 }
             });
         });
